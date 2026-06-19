@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, X, Menu, ChevronDown } from "lucide-react";
 
 /**
@@ -513,10 +514,10 @@ export default function BaarHome() {
           <nav className="nav">
             <span className="nav-logo">BAAR</span>
             <div className="nav-links">
-              <a className="nav-link" href="#">Home</a>
-              <a className="nav-link" href="/work">Work</a>
-              <a className="nav-link" href="/shop">Shop</a>
-              <a className="nav-link" href="/resources">About</a>
+              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/work">Work</Link>
+              <Link className="nav-link" to="/shop">Shop</Link>
+              <Link className="nav-link" to="/resources">About</Link>
             </div>
             <span className="nav-cta">Collab</span>
             <div className="nav-dots" onClick={() => setMobileMenu(true)}><span className="nav-dot" /><span className="nav-dot" /></div>
@@ -527,7 +528,7 @@ export default function BaarHome() {
         {/* MOBILE MENU */}
         <div className={`mobile-menu ${mobileMenu ? "open" : ""}`}>
           <button className="mobile-close" onClick={() => setMobileMenu(false)}><X size={22} strokeWidth={1.5} /></button>
-          {[{label:"Home",href:"#"},{label:"Work",href:"/work"},{label:"Shop",href:"/shop"},{label:"About",href:"/resources"}].map(item => <a key={item.label} href={item.href} className="mobile-link" onClick={() => setMobileMenu(false)}>{item.label}</a>)}
+          {[{label:"Home",to:"/"},{label:"Work",to:"/work"},{label:"Shop",to:"/shop"},{label:"About",to:"/resources"}].map(item => <Link key={item.label} to={item.to} className="mobile-link" onClick={() => setMobileMenu(false)}>{item.label}</Link>)}
           <a href="#" className="mobile-cta" onClick={() => { setMobileMenu(false); setCollabOpen(true); }}>Collab</a>
         </div>
 
@@ -556,7 +557,7 @@ export default function BaarHome() {
               <span className="showcase-eyebrow">What We Build</span>
               <h2 className="showcase-title">Premium Ads</h2>
             </div>
-            <a className="showcase-cta" href="/work">View all Premium Ads →</a>
+            <Link className="showcase-cta" to="/work">View all Premium Ads →</Link>
           </div>
           <div className="showcase-track">
             {/* Feature promo card */}
@@ -600,7 +601,7 @@ export default function BaarHome() {
               <span className="showcase-eyebrow">The Content Engine</span>
               <h2 className="showcase-title">Social Trends</h2>
             </div>
-            <a className="showcase-cta" href="/work">View all Social Trends →</a>
+            <Link className="showcase-cta" to="/work">View all Social Trends →</Link>
           </div>
           <div className="showcase-track">
             {/* Feature promo card */}
@@ -799,10 +800,10 @@ export default function BaarHome() {
           </div>
           <div className="footer-mid">
             <div className="footer-links">
-              <a className="footer-link" href="#">Home</a>
-              <a className="footer-link" href="/work">Work</a>
-              <a className="footer-link" href="/shop">Shop</a>
-              <a className="footer-link" href="/resources">About</a>
+              <Link className="footer-link" to="/">Home</Link>
+              <Link className="footer-link" to="/work">Work</Link>
+              <Link className="footer-link" to="/shop">Shop</Link>
+              <Link className="footer-link" to="/resources">About</Link>
               <a className="footer-link" href="https://discord.gg/gNmVtUTB2" target="_blank" rel="noopener noreferrer">Discord</a>
             </div>
             <div className="footer-socials">

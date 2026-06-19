@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * BAAR Work Page
@@ -383,10 +384,10 @@ export default function WorkPage() {
           <nav className="nav-pill">
             <span className="nav-logo">BAAR</span>
             <div className="nav-links">
-              <span className="nav-link">Home</span>
-              <span className="nav-link active">Work</span>
-              <span className="nav-link">Shop</span>
-              <span className="nav-link">About</span>
+              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link active" to="/work">Work</Link>
+              <Link className="nav-link" to="/shop">Shop</Link>
+              <Link className="nav-link" to="/resources">About</Link>
             </div>
             <span className="nav-cta">Discord</span>
           </nav>

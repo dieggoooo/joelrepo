@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 
 /**
@@ -234,10 +235,10 @@ export default function ShopPage() {
           <nav className="nav">
             <span className="nav-logo">BAAR</span>
             <div className="nav-links">
-              <span className="nav-link">Home</span>
-              <span className="nav-link">Work</span>
-              <span className="nav-link active">Shop</span>
-              <span className="nav-link">About</span>
+              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/work">Work</Link>
+              <Link className="nav-link active" to="/shop">Shop</Link>
+              <Link className="nav-link" to="/resources">About</Link>
             </div>
             <span className="nav-cta">Configure</span>
             <button className="nav-mobile" onClick={() => setMobileMenu(true)} aria-label="Menu"><Menu size={20} strokeWidth={1.5} /></button>
