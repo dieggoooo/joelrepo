@@ -545,7 +545,7 @@ export default function WorkPage() {
             {/* Stage detail */}
             <div
               className="tier-detail"
-              style={{ "--glow-color": stage.ringColor } as any}
+              style={{ "--glow-color": stage.ringColor }}
             >
               <div
                 style={{
