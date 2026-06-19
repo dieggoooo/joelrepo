@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * BAAR Resource Page
@@ -398,8 +399,13 @@ export default function ResourcePage() {
 
           {/* ═══ SIDEBAR TOC ═══ */}
           <aside className="toc-rail">
-            <div className="toc-wordmark">BAAR</div>
+            <Link to="/" className="toc-wordmark" style={{ textDecoration: "none", color: "inherit" }}>BAAR</Link>
             <div className="toc-tagline">Be Authentic and Real.</div>
+            <div style={{ display: "flex", gap: 16, margin: "12px 0" }}>
+              <Link to="/" style={{ fontSize: 11, color: "var(--text-m)", textDecoration: "none" }}>Home</Link>
+              <Link to="/work" style={{ fontSize: 11, color: "var(--text-m)", textDecoration: "none" }}>Work</Link>
+              <Link to="/shop" style={{ fontSize: 11, color: "var(--text-m)", textDecoration: "none" }}>Shop</Link>
+            </div>
             <div className="toc-label">Resource Guide</div>
             <nav className="toc-nav">
               {SECTIONS.map((s, i) => {
