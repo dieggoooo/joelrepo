@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>baar-website-pages</title>
-    <script type="module" crossorigin src="/assets/index-S96AsOkP.js"></script>
+    <title>BAAR</title>
+  <script>
+    (function() {
+      var p = new URLSearchParams(window.location.search).get('p');
+      if (p) window.history.replaceState(null, '', p);
+    })();
+  </script>
+    <script type="module" crossorigin src="/assets/index-DxYEa2Qq.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DFdKcLvU.css">
   </head>
   <body>
