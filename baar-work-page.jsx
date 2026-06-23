@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 /**
  * BAAR Work Page
@@ -30,12 +29,12 @@ const STAGES = [
     phase: "Diagnosis",
     ring: "Compass Entry",
     ringColor: "#FF8A00",
-    action: "BAAR identifies the organization showing signs of creative misalignment. We approach with a precise diagnosis before a pitch ever exists. The conversation begins with a mirror, not a menu.",
+    action: "BAAR identifies the organization showing signs of creative misalignment. We approach with a diagnosis before a pitch ever exists. The conversation begins with a mirror, not a menu.",
     feeling: "Seen",
-    feelingDesc: "For the first time someone has named what the creative team has been feeling for months.",
+    feelingDesc: "For the first time someone has named what we have been feeling for months.",
     deliverable: "Creative Misalignment Audit",
     investment: "$750 – $1,000",
-    duration: "Week 1",
+    duration: "",
     tag: "Entry",
   },
   {
@@ -43,12 +42,12 @@ const STAGES = [
     phase: "Recalibration",
     ring: "Ring 01 — Mindset",
     ringColor: "#FF9E33",
-    action: "Honest confrontation between leadership and the creative team. Not a workshop — a reckoning. The gap between what the organization says it values and how it actually operates gets put on the table.",
+    action: "Honest confrontation between leadership and the creative team. The gap between what the organization says it values and how it actually operates gets put on the table.",
     feeling: "Exposed",
     feelingDesc: "Uncomfortable but necessary. Leadership sees the creative gap from both sides simultaneously.",
     deliverable: "Shared Language Document",
     investment: "Core Compass",
-    duration: "Week 2–3",
+    duration: "",
     tag: "Compass",
   },
   {
@@ -56,12 +55,12 @@ const STAGES = [
     phase: "Mindset Shift",
     ring: "Ring 01 — Mindset",
     ringColor: "#FF9E33",
-    action: "A common vocabulary for creativity is installed across the organization. Leadership gains the language to advocate for creative investment. Creatives gain legitimacy. The center of gravity shifts.",
+    action: "A common vocabulary for creativity is installed across the organization. Leadership gains the language to advocate for creative investment. Creativity gain legitimacy.",
     feeling: "Equipped",
-    feelingDesc: "The creative lead can now walk into a boardroom and say what they could never articulate before.",
+    feelingDesc: "The creative process is clear",
     deliverable: "Creative Philosophy Framework",
     investment: "Core Compass",
-    duration: "Week 4–6",
+    duration: "",
     tag: "Compass",
   },
   {
@@ -69,12 +68,12 @@ const STAGES = [
     phase: "Process Build",
     ring: "Ring 02 — Process",
     ringColor: "#00C2FF",
-    action: "The internal infrastructure for consistent creative output is designed and installed. Not imposed from outside — built from the inside, with the people who will use it. A system they own.",
+    action: "The infrastructure for consistent creative output is designed and installed. Not imposed from outside — built from the inside, with the people who will use it. A system you own.",
     feeling: "Invested",
     feelingDesc: "They helped build it. Ownership creates accountability that no external mandate ever could.",
     deliverable: "Creative Enrollment Blueprint",
     investment: "Core Compass",
-    duration: "Month 2",
+    duration: "",
     tag: "Compass",
   },
   {
@@ -95,12 +94,12 @@ const STAGES = [
     phase: "Sustained System",
     ring: "Retainer",
     ringColor: "#9C7CFF",
-    action: "The system is running. BAAR maintains it, evolves it, and holds the organization accountable to the mindset it built. Monthly retainer. The creative infrastructure self-perpetuates.",
+    action: "The system is running. BAAR maintains it, evolves it, and holds the organization accountable to the mindset it built.",
     feeling: "Sustained",
     feelingDesc: "The organization no longer needs BAAR to tell them creativity matters. They proved it themselves.",
     deliverable: "Monthly Content + Mindset Maintenance",
-    investment: "$2,500 – $4,500 / month",
-    duration: "6+ months",
+    investment: "$8,000 – $20,000 / month",
+    duration: "",
     tag: "Retainer",
   },
 ];
@@ -112,35 +111,27 @@ const CONTENT_STEPS = [
     title: "Cultural\nListening",
     accent: "#FF8A00",
     platforms: ["All Platforms"],
-    body: "Before a concept exists, BAAR listens. Trending sounds, native formats, cultural vocabulary, algorithmic signals. We build a brief from the culture, not from the brand calendar.",
+    body: "Before a concept exists, BAAR listens. Trending sounds, formats, cultural vocabulary. We build a brief from the culture, not from the brand calendar.",
     tool: "Trend monitoring + algorithm analysis",
   },
   {
     num: "02",
     title: "Native\nConcepting",
     accent: "#FF9E33",
-    platforms: ["Reels", "TikTok"],
+    platforms: ["Reels"],
     body: "Concepts that feel native to the format first, brand second. Viewers don't watch ads — they watch content. The brand lives inside the content, not on top of it.",
     tool: "Brief + visual storyboard",
   },
   {
     num: "03",
-    title: "AI-Assisted\nProduction",
-    accent: "#00C2FF",
-    platforms: ["All Formats"],
-    body: "Hybrid production: human creative direction driving AI-generated visuals, voiceover synthesis, motion graphics, and dynamic cuts. The result is premium-looking content at social-media speed.",
-    tool: "AI production stack + human edit",
-  },
-  {
-    num: "04",
-    title: "Platform\nOptimization",
+    title: "",
     accent: "#9C7CFF",
-    platforms: ["Reels", "TikTok", "Shorts"],
-    body: "Every platform has a native language. Reels (15–30s, visual hook in 1s). TikTok (text-native, sound-on, creator-voice). Shorts (mobile-full, high-retention cuts). The same concept gets spoken differently in each room.",
+    platforms: ["Reels"],
+    body: "Reels (15–30s, visual hook in 1s). TikTok (text-native, sound-on, creator-voice). Shorts (mobile-full, high-retention cuts). The same concept gets spoken differently on each platform.",
     tool: "Format adaption + caption engineering",
   },
   {
-    num: "05",
+    num: "04",
     title: "Performance\nLoop",
     accent: "#2cff05",
     platforms: ["Analytics"],
@@ -274,7 +265,7 @@ export default function WorkPage() {
 .prod-spec-val.accent-e{color:#FF8A00}
 
 /* Bottom CTA row */
-.prod-cta-row{padding:0 36px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.prod-cta-row{padding:0 36px 28px;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:16px}
 .prod-cta-left{font-family:'Epilogue',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.4);max-width:380px;line-height:1.6}
 .prod-cta-btn{font-size:12px;font-weight:500;color:#F6F7F9;border:1px solid rgba(255,255,255,.2);padding:10px 20px;border-radius:999px;cursor:pointer;transition:all 280ms ${EASE};background:rgba(255,255,255,.06);display:flex;align-items:center;gap:8px}
 .prod-cta-btn:hover{background:rgba(0,194,255,.12);border-color:rgba(0,194,255,.4)}
@@ -374,6 +365,33 @@ export default function WorkPage() {
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .fade-in{opacity:0;animation:fadeUp 700ms ${EASE} forwards}
+
+/* ═══ FOOTER ═══ */
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.25}50%{transform:scale(1.8);opacity:0}}
+.footer{position:relative;z-index:1;padding:80px 40px 56px;max-width:1240px;margin:0 auto;border-top:1px solid var(--border);transition:border-color 600ms ${EASE}}
+@media(max-width:760px){.footer{padding:60px 24px 40px}}
+.footer-top{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:flex-start;margin-bottom:80px}
+@media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:48px}}
+.footer-brand{display:flex;flex-direction:column;gap:14px;max-width:440px}
+.footer-wordmark{font-family:'BC',sans-serif;font-size:clamp(56px,10vw,112px);letter-spacing:.04em;line-height:.9;margin:0;transition:color 600ms ${EASE}}
+.footer-tagline{font-family:'Epilogue',sans-serif;font-style:italic;font-size:14px;font-weight:300;color:var(--text-s);margin:0;transition:color 600ms ${EASE}}
+.footer-collab-zone{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+@media(max-width:760px){.footer-collab-zone{align-items:flex-start}}
+.footer-collab-caption{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-m);transition:color 600ms ${EASE}}
+.collab-pill{display:inline-flex;align-items:center;gap:12px;padding:10px 20px 10px 16px;background:var(--surface);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:999px;cursor:default;font:inherit;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 6px 18px -8px rgba(0,0,0,.10);transition:all 320ms ${EASE}}
+.collab-dot{width:8px;height:8px;border-radius:50%;background:#00C2FF;box-shadow:0 0 12px rgba(0,194,255,.6);position:relative;flex-shrink:0}
+.collab-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:#00C2FF;opacity:.25;animation:pulse 2.4s ${EASE} infinite}
+.collab-label{font-size:13px;font-weight:500;color:var(--text)}
+.collab-sep{color:var(--text-m);opacity:.6}
+.collab-status{font-size:12.5px;color:var(--text-s)}
+.footer-mid{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap;gap:20px;transition:border-color 600ms ${EASE}}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap}
+.footer-link{font-size:13px;color:var(--text);opacity:.65;cursor:pointer;transition:opacity 260ms ${EASE};text-decoration:none}
+.footer-link:hover{opacity:1}
+.footer-socials{display:flex;gap:14px}
+.footer-social{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-m);cursor:pointer;transition:color 260ms ${EASE}}
+.footer-social:hover{color:var(--text)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-family:'Epilogue',sans-serif;font-size:11px;color:var(--text-m);flex-wrap:wrap;gap:14px;transition:color 600ms ${EASE}}
       `}</style>
 
       <div className="page" data-theme={isDark ? "dark" : "light"}>
@@ -384,10 +402,10 @@ export default function WorkPage() {
           <nav className="nav-pill">
             <span className="nav-logo">BAAR</span>
             <div className="nav-links">
-              <Link className="nav-link" to="/">Home</Link>
-              <Link className="nav-link active" to="/work">Work</Link>
-              <Link className="nav-link" to="/shop">Shop</Link>
-              <Link className="nav-link" to="/resources">About</Link>
+              <span className="nav-link">Home</span>
+              <span className="nav-link active">Work</span>
+              <span className="nav-link">Shop</span>
+              <span className="nav-link">About</span>
             </div>
             <span className="nav-cta">Discord</span>
           </nav>
@@ -402,14 +420,9 @@ export default function WorkPage() {
               <span style={{ color: "var(--text-d)" }}>The work</span>
               doesn't explain itself.
             </h1>
-            <p className="ph-sub">
-              Premium AI-assisted production. A proprietary method for building trend-native content systems. Proof of the thesis in public.
-            </p>
             <div className="ph-meta">
-              <span className="ph-tag">AI Production</span>
+              <span className="ph-tag">Advertisements</span>
               <span className="ph-tag">Social Content</span>
-              <span className="ph-tag">SaaS Explainer</span>
-              <span className="ph-tag">Tier System</span>
             </div>
           </header>
 
@@ -417,10 +430,7 @@ export default function WorkPage() {
           <section className="section">
             <div className="section-header">
               <div className="section-num">01</div>
-              <h2 className="section-title">Premium AI Production</h2>
-              <p className="section-desc">
-                SaaS-style explainer meets AI-generated visual intelligence. Dynamic, precise, built to perform in the first 1.5 seconds.
-              </p>
+              <h2 className="section-title">Premium Advertisements</h2>
             </div>
 
             <div className="production-wrap">
@@ -439,7 +449,6 @@ export default function WorkPage() {
                   <span className="hud-live-text">IN PRODUCTION</span>
                 </div>
                 <div className="prod-hud-tr">
-                  <div className="hud-tag">60s HERO</div>
                   <div className="hud-tag hud-tag-pulse">AI-GEN</div>
                 </div>
 
@@ -457,12 +466,11 @@ export default function WorkPage() {
 
                 {/* Corner metrics */}
                 <div className="prod-hud-bl">
-                  <div className="hud-tag">PLATFORM : SOCIAL FIRST</div>
+                  <div className="hud-tag">PLATFORM : SOCIAL</div>
                 </div>
                 <div className="prod-hud-br">
                   <div className="prod-metric">
-                    <span className="prod-metric-val">4.2×</span>
-                    <span className="prod-metric-label">View Completion</span>
+                    <span className="prod-metric-val">4K</span>
                   </div>
                 </div>
 
@@ -476,12 +484,12 @@ export default function WorkPage() {
               <div className="prod-specs">
                 {[
                   { label: "Format", val: "SaaS Explainer", accent: false },
-                  { label: "Duration", val: "0:60 / 0:30 cut", accent: false },
+                  { label: "Duration", val: "30 secs", accent: false },
                   { label: "Production", val: "AI-Assisted Hybrid", accent: "p" },
-                  { label: "Platform", val: "Social First", accent: false },
-                  { label: "Visual Engine", val: "BAAR Stack v1", accent: "e" },
-                  { label: "Deliverables", val: "3 aspect ratios", accent: false },
-                ].map(({ label, val, accent }) => (
+                  { label: "Platform", val: "", accent: false },
+                  { label: "Visual Engine", val: "", accent: "e" },
+                  { label: "Deliverables", val: "3 Version", accent: false },
+                ].filter(({ val }) => val).map(({ label, val, accent }) => (
                   <div key={label} className="prod-spec">
                     <span className="prod-spec-label">{label}</span>
                     <span className={`prod-spec-val${accent ? ` accent-${accent}` : ""}`}>{val}</span>
@@ -490,9 +498,6 @@ export default function WorkPage() {
               </div>
 
               <div className="prod-cta-row">
-                <p className="prod-cta-left">
-                  AI-generated visuals, hybrid human–machine production pipeline, built for social-first distribution. Every frame earns its 0.04 seconds.
-                </p>
                 <div className="prod-cta-btn">
                   Request Production Reel
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
@@ -546,7 +551,7 @@ export default function WorkPage() {
             {/* Stage detail */}
             <div
               className="tier-detail"
-              style={{ "--glow-color": stage.ringColor }}
+              style={{ "--glow-color": stage.ringColor } as any}
             >
               <div
                 style={{
@@ -580,13 +585,12 @@ export default function WorkPage() {
                 <div className="td-right">
                   {[
                     ["Deliverable", stage.deliverable],
-                    ["Investment", stage.investment],
                     ["Timeline", stage.duration],
                     ["Stage", stage.tag],
-                  ].map(([label, val]) => (
+                  ].filter(([, val]) => val).map(([label, val]) => (
                     <div key={label} className="td-meta-item">
                       <div className="td-meta-label">{label}</div>
-                      <div className="td-meta-val" style={label === "Investment" ? { color: stage.ringColor } : {}}>{val}</div>
+                      <div className="td-meta-val">{val}</div>
                     </div>
                   ))}
                 </div>
@@ -619,7 +623,7 @@ export default function WorkPage() {
               <div className="section-num">03</div>
               <h2 className="section-title">The Content Engine</h2>
               <p className="section-desc">
-                How BAAR creates trend-native content for Instagram Reels, TikTok, and Shorts. A proprietary five-step method that puts culture before calendar.
+                How BAAR creates trend-native content for Instagram Reels, TikTok, and Shorts. A proprietary four-step method that puts culture before calendar.
               </p>
             </div>
 
@@ -646,10 +650,12 @@ export default function WorkPage() {
                           >{p}</span>
                         ))}
                       </div>
-                      <div
-                        className="ce-title"
-                        style={hoveredContent === i ? { color: step.accent } : {}}
-                      >{step.title}</div>
+                      {step.title && (
+                        <div
+                          className="ce-title"
+                          style={hoveredContent === i ? { color: step.accent } : {}}
+                        >{step.title}</div>
+                      )}
                       <div className="ce-body">{step.body}</div>
                       <div className="ce-tool">{step.tool}</div>
                     </div>
@@ -663,27 +669,45 @@ export default function WorkPage() {
               </div>
             </div>
 
-            <div style={{ marginTop: 24, fontFamily: "'Epilogue',sans-serif", fontSize: 12, color: "var(--text-m)", fontStyle: "italic" }}>
-              ← Scroll to see all five stages
-            </div>
           </section>
 
-          {/* STATS STRIP */}
-          <div className="stats-strip">
-            {[
-              { num: "4.2×", label: "Average view-completion rate on AI-produced reels", accent: "#00C2FF" },
-              { num: "60d", label: "Core Compass engagement to first content output", accent: "#FF8A00" },
-              { num: "Ring 01", label: "Where BAAR enters — other agencies start at Ring 03", accent: "#FF9E33" },
-              { num: "100%", label: "Of retainer clients report changed internal language around creativity", accent: "#2cff05" },
-            ].map(({ num, label, accent }) => (
-              <div key={num} className="stat-cell">
-                <div className="stat-num" style={{ color: accent }}>{num}</div>
-                <div className="stat-label">{label}</div>
-              </div>
-            ))}
-          </div>
-
         </div>
+
+        {/* ═══ FOOTER ═══ */}
+        <footer className="footer">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <h1 className="footer-wordmark">BAAR</h1>
+              <p className="footer-tagline"></p>
+            </div>
+            <div className="footer-collab-zone">
+              <span className="footer-collab-caption">Collab</span>
+              <div className="collab-pill">
+                <span className="collab-dot" />
+                <span className="collab-label">Open for collabs</span>
+                <span className="collab-sep">·</span>
+                <span className="collab-status">case by case</span>
+              </div>
+            </div>
+          </div>
+          <div className="footer-mid">
+            <div className="footer-links">
+              <a className="footer-link" href="/">Home</a>
+              <a className="footer-link" href="/work">Work</a>
+              <a className="footer-link" href="/shop">Shop</a>
+              <a className="footer-link" href="/resources">Resources</a>
+              <a className="footer-link" href="https://discord.gg/gNmVtUTB2" target="_blank" rel="noopener noreferrer">Discord</a>
+            </div>
+            <div className="footer-socials">
+              <span className="footer-social">Instagram</span>
+              <span className="footer-social">LinkedIn</span>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span>© {new Date().getFullYear()} BAAR · Made in Atlanta</span>
+            <span>Be Authentic and Real</span>
+          </div>
+        </footer>
       </div>
     </>
   );
